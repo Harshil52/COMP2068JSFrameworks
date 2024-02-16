@@ -1,4 +1,4 @@
-
+/*Harshil Thakkar 200522591*/
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap');
 
 @font-face {
@@ -98,21 +98,21 @@ nav ul li a:hover {
 
 /*Header -  This is css for the 3 lines on the first page where we are creating a layout which work responsively*/
 
-.header-info{
+.home-info{
     margin-top: 0px;
 }
-.header-info .line1 {
+.home-info .line1 {
     margin-top: 18%;
     font-size: 40px;
     color: rgb(44, 199, 137);
     
 }
-.header-info .line2 {
+.home-info .line2 {
     line-height: 150%;
     font-size: 70px;
     color: rgb(146, 21, 192);
 }
-.header-info .line3 {
+.home-info .line3 {
     font-size: 40px;
     color: rgb(44, 199, 137);
     margin-top: 20px;

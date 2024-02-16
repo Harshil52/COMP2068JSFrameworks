@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-//
+// creating other required Router objects
 var aboutRouter = require('./routes/about');
 var projectsRouter = require('./routes/projects');
 var contactRouter = require('./routes/contact');
@@ -24,13 +24,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//
+// providing the static files
 app.use('/images', express.static(path.join(__dirname,'public/images')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-//
+// creating new middlewares
 app.use('/about', aboutRouter);
 app.use('/projects', projectsRouter);
 app.use('/contact', contactRouter);
