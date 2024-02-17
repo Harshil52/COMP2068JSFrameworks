@@ -9,6 +9,10 @@
 - All the dependencies and configutations for NPM is stored in Package.json
 - README.md is the file which has all the documentation of my portfolio Assignment1
 
+# Link to Live Server
+- https://harshil-thakkar-portfolio.onrender.com/
 # Author
 
 - Harshil Thakkar 200522591
+
+- 
