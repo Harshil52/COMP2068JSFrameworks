@@ -1,0 +1,30 @@
+<h1>{{title}}</h1>
+<p id="add-link">
+<a href="/contacts/add">Add a new Contact</a>
+</p>
+<div class="table-container">
+<table class="my-table">
+    <thead>
+        <th>Name</th>
+        <th>Contact</th>
+        <th>Relation</th>
+        <th>Email</th>
+        <th>Options</th>
+    </thead>
+    <tbody>
+        {{#each dataset}}
+        <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.contact}}</td>
+            <td>{{this.relation}}</td>
+            <td>{{this.email}}</td>
+
+            <td>
+                <a href="/Contacts/Edit/{(this._id)}" class="btn btn-primary">Edit</a>
+                <a href="/Contacts/Delete/{(this._id)}" class="btn btn-danger" onclick="return confirmDelete()">Delete</a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+</div>

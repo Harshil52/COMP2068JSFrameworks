@@ -1,0 +1,19 @@
+<h1>{{title}}</h1>
+<p id="add-link">
+<a href="/relations/add">Add a new Contact Relation</a>
+</p>
+
+<div class="table-container">
+<table class="my-table">
+    <thead>
+        <th>Relation</th>
+    </thead>
+    <tbody>
+        {{#each dataset}}
+        <tr>
+            <td>{{this.relation}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+</div>

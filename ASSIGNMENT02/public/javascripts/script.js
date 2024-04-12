@@ -1,4 +1,3 @@
-function confirmDeletion() {
-    return confirm('Are you sure you want to delete this contact?');
+function confirmDelete(){
+    return confirm("Are you sure you want to delete this contact?");
 }
-
