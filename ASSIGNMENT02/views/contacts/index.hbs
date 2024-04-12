@@ -1,7 +1,11 @@
 <h1>{{title}}</h1>
+
+{{#if user}}
 <p id="add-link">
 <a href="/contacts/add">Add a new Contact</a>
 </p>
+{{/if}}
+
 <div class="table-container">
 <table class="my-table">
     <thead>
@@ -9,7 +13,9 @@
         <th>Contact</th>
         <th>Relation</th>
         <th>Email</th>
+        {{#if user}}
         <th>Options</th>
+        {{/if}}
     </thead>
     <tbody>
         {{#each dataset}}
@@ -19,10 +25,12 @@
             <td>{{this.relation}}</td>
             <td>{{this.email}}</td>
 
+            {{#if ../user}}
             <td>
                 <a href="/Contacts/Edit/{(this._id)}" class="btn btn-primary">Edit</a>
                 <a href="/Contacts/Delete/{(this._id)}" class="btn btn-danger" onclick="return confirmDelete()">Delete</a>
             </td>
+            {{/if}}
         </tr>
         {{/each}}
     </tbody>

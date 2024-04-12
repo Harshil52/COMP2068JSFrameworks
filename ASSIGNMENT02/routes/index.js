@@ -1,29 +1,33 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
 //Importing passport and user
 var passport = require("passport");
-var user = require("../models/user");
+var User = require("../models/user");
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Contact Management' });
+router.get("/", function (req, res, next) {
+  res.render("index", { title: "Contact Management", user: req.user });
 });
 
 router.get("/login", function (req, res, next) {
   let messages = req.session.messages || [];
   req.session.messages = [];
-  res.render("login", {title: "Login to ContactLync", messages : messages});
+  res.render("login", { title: "Login to ContactLync", messages: messages });
 });
 
-router.post("/login", passport.authenticate("local", {
-  successRedirect : "/contacts",
-  failureRedirect : "/login",
-  failureMessage : "Invalid Credentials"
-}));
+router.post(
+  "/login",
+  passport.authenticate("local", {
+    successRedirect: "/contacts",
+    successMessage: "Login Successful",
+    failureRedirect: "/login",
+    failureMessage: "Invalid Credentials",
+  })
+);
 
-router.get("/register", function(req, res, next){
-  res.render("register", {title: "Register for ContactLync"});
+router.get("/register", function (req, res, next) {
+  res.render("register", { title: "Register for ContactLync" });
 });
 
 router.post("/register", (req, res, next) => {
@@ -32,19 +36,43 @@ router.post("/register", (req, res, next) => {
       username: req.body.username,
     }),
     req.body.password,
-    (err, newUser) => {
+    function (err, newUser) {
       if (err) {
         console.log(err);
-        // returning the user back to reload the register page
-        return res.redirect("/register");
+        res.render("error", {
+          message: "Your registration information is not valid",
+        });
       } else {
         // logging the user in
-        req.login(newUser, (err) => {
+        req.login(newUser, function (err) {
           res.redirect("/contacts");
         });
       }
     }
   );
 });
+
+router.get("/logout", (req, res, next) => {
+  req.logout((err) => {
+    res.redirect("/login");
+  });
+});
+
+router.get(
+  "/github",
+  passport.authenticate("github", {
+    scope: ["user:email"],
+  })
+);
+
+router.get(
+  "/github/callback",
+  passport.authenticate("github", {
+    failureRedirect: "/login",
+  }),
+  (req, res, next) => {
+    res.redirect("/contacts");
+  }
+);
 
 module.exports = router;
