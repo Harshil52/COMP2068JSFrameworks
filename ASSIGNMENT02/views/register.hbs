@@ -1,5 +1,5 @@
 <h1>Register</h1>
-
+<div class="register-form">
 <form method="post">
     <fieldset>
     <label for="username">Username : *</label>
@@ -13,8 +13,9 @@
     <label for="confirm">Confirm Password : *</label>
     <input name="confirm" id="confirm" type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />
   </fieldset>
-
-  <button class="btn btn-info">Register</button>
-  Already registered? <a href="/login">Login</a>
-
+</div>
+<p class="register-data">
+  <button class="register-button">Register</button> <br>
+  Already registered? <a href="/login" class="login-link">Login</a>
+</p>
 </form>

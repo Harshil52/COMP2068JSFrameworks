@@ -1,23 +1,23 @@
 <h1>{{title}}</h1>
 
 <form method="POST">
-
-<fieldset>
-    <label for="name" class="col-2">
+<div class="add-contact">
+  <fieldset>
+    <label for="name">
       Name:
     </label>
     <input name="name" id="name" required />
-</fieldset>
+  </fieldset>
 
-<fieldset>
-    <label for="contact" class="col-2">
+  <fieldset>
+    <label for="contact">
       Contact:
     </label>
-    <input name="contact" id="contact" required />
-</fieldset>
+    <input name="contact" id="contact" required pattern="[0-9]{10}" />
+  </fieldset>
 
-<fieldset>
-    <label for="relation" class="col-2">
+  <fieldset>
+    <label for="relation">
       Relation:
     </label>
     <select name="relation" id="relation">
@@ -25,16 +25,16 @@
         <option>{{this.relation}}</option>
       {{/each}}
     </select>
-</fieldset>
+  </fieldset>
 
-<fieldset>
-    <label for="email" class="col-2">
+  <fieldset>
+    <label for="email">
       Email:
     </label>
-    <input name="email" id="email" required  />
-</fieldset>
-  
-  <button class="offset-3 btn btn-primary">
+    <input name="email" id="email" required type="email" />
+  </fieldset>
+</div>
+  <button class="save-contact">
     Save contact
   </button>
 

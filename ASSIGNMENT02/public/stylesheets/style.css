@@ -104,7 +104,7 @@ h1{
   font-size: 40px;
 }
 
-#add-link{
+#add-link , #save-link{
   text-align: center;
   text-decoration: underline;
   padding-top: 20px;
@@ -140,3 +140,108 @@ h1{
   border-radius: 10px;
   font-size: 18px;
 }
+
+.edit-delete{
+  color: rgb(92, 13, 13);
+  text-decoration:solid;
+}
+
+.save-button{
+  margin: 20px;
+  padding: 16px;
+  font-size: 22px;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+}
+
+#add-relation{
+  margin-top: 50px;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  font-size: 22px;
+}
+
+#relation, input{
+  margin: 20px;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.add-contact{
+  font-size: 20px;
+}
+
+.save-contact{
+  margin: 20px;
+  padding: 16px;
+  font-size: 22px;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  margin-left: 650px;
+}
+fieldset{
+  border: none;
+  margin-left: 550px;
+}
+
+.login-data, .register-data{
+  font-size: 16px;
+  margin-left: 580px;
+  margin-top: 50px;
+}
+
+.login-buttons{
+  font-size: 14px;
+  margin: 14px;
+  padding: 16px;
+  background-color: #020000;
+  color: white;
+  border-radius: 5px;
+}
+
+.register-button{
+  font-size: 14px;
+  margin-top: 0px;
+  padding: 16px;
+  background-color: #020000;
+  color: white;
+  border-radius: 5px;
+  margin-left: 100px;
+  margin-bottom: 20px;
+}
+
+.login-buttons a{
+  color: white;
+}
+
+.register{
+  color: navy;
+}
+
+.header-line{
+  margin-top: 30px;
+  margin-left: 600px;
+  font-size: 20px;
+}
+
+.register-form{
+  font-size: 20px;
+  margin-top: 40px;
+}
+
+.login-link{
+  color: navy;
+  margin-left: 20px;
+}
+
+.homepage-data{
+  font-size: 22px;
+  margin: 20px;
+}
+h2{
+  text-align: center;
+  margin: 20px;
+} 

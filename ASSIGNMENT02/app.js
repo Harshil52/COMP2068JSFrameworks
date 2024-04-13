@@ -85,12 +85,13 @@ app.use(function (_req, _res, next) {
   next(createError(404));
 });
 
-hbs.registerHelper("createOptionElement", (currentValue, selectedValue) => {
-  console.log("Comparing: " + currentValue + " and " + selectedValue);
+hbs.registerHelper("createOption", (currentValue, selectedValue) => {
   var selectedProperty = "";
-  if (currentValue == selectedProperty) selectedProperty = "selected";
+  if (currentValue == selectedValue) {
+    selectedProperty = "selected";
+  }
   return new hbs.SafeString(
-    "<option ${selectedProperty}>${currentValue}</option>"
+    `<option ${selectedProperty}>${currentValue}</option>`
   );
 });
 

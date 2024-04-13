@@ -40,8 +40,15 @@ router.get("/delete/:_id", authorization, async (req, res, next) => {
 });
 
 router.get("/edit/:_id", authorization, async (req, res, next) => {
+try{
   let contactId = req.params._id;
-  let contactsData = await Contacts.findOne({ _id: contactId });
+  let contactsData = await Contacts.findById(contactId);
+
+  if(!contactsData){
+    res.status(404).render("error", {message: "Contact Not Found"});
+    return;
+  }
+
   let relationsList = await Relation.find().sort([["relation", "ascending"]]);
   res.render("contacts/edit", {
     title: "Edit Contact Information",
@@ -49,12 +56,15 @@ router.get("/edit/:_id", authorization, async (req, res, next) => {
     relations: relationsList,
     user: req.user,
   });
+}
+catch(error){
+    next(error);
+}
 });
 
 router.post("/edit:_id",authorization, async (req, res, next) => {
   let contactId = req.params._id;
-  await Contacts.findOneAndUpdate(
-    { _id: contactId },
+  await Contacts.findByIdAndUpdate(contactId,
     {
       name: req.body.name,
       contact: req.body.contact,
@@ -62,6 +72,7 @@ router.post("/edit:_id",authorization, async (req, res, next) => {
       email: req.body.email,
     }
   );
+  res.redirect("/contacts");
 });
 
 module.exports = router;

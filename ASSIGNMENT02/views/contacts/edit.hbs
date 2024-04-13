@@ -6,14 +6,14 @@
     <label for="name" class="col-2">
       Name:
     </label>
-    <input name="name" id="name" required value="{(contacts.name)}"/>
+    <input name="name" id="name" required value="{{contacts.name}}"/>
 </fieldset>
 
 <fieldset>
     <label for="contact" class="col-2">
       Contact:
     </label>
-    <input name="contact" id="contact" required value="{(contacts.contact)}"/>
+    <input name="contact" id="contact" required value="{{contacts.contact}}"/>
 </fieldset>
 
 <fieldset>
@@ -22,7 +22,7 @@
     </label>
     <select name="relation" id="relation">
       {{#each relations}}
-        {{createOptionElement this.name ../contact.relation}}
+        {{createOption this.relation ../contacts.relations}}
       {{/each}}
     </select>
 </fieldset>
@@ -31,10 +31,10 @@
     <label for="email" class="col-2">
       Email:
     </label>
-    <input name="email" id="email" required  value="{(contacts.email)}"/>
+    <input name="email" id="email" required  value="{{contacts.email}}"/>
 </fieldset>
   
-  <button class="offset-3 btn btn-primary">
+  <button class="save-contact">
     Save contact
   </button>
 

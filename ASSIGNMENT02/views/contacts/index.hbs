@@ -27,8 +27,8 @@
 
             {{#if ../user}}
             <td>
-                <a href="/Contacts/Edit/{(this._id)}" class="btn btn-primary">Edit</a>
-                <a href="/Contacts/Delete/{(this._id)}" class="btn btn-danger" onclick="return confirmDelete()">Delete</a>
+                <a href="/Contacts/edit/{{this._id}}" class="edit-delete">Edit</a>
+                <a href="/Contacts/delete/{{this._id}}" class="edit-delete" onclick="return confirmDelete()">Delete</a>
             </td>
             {{/if}}
         </tr>
