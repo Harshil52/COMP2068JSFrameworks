@@ -1,14 +1,18 @@
 <h1>{{title}}</h1>
+
+{{!-- Adding a new Contact -- Create Functionality --}}
 <p id="add-link">
 <a href="/relations/add">Add a new Contact Relation</a>
 </p>
 
+{{!-- Read functionality - Displaying the data in table form with edit and delete buttons --}}
 <div class="table-container">
 <table class="my-table">
     <thead>
         <th>Relation</th>
     </thead>
     <tbody>
+        {{!-- getting all the data stored in the relation dataset --}}
         {{#each dataset}}
         <tr>
             <td>{{this.relation}}</td>

@@ -98,6 +98,7 @@ a {
   color: rgb(104, 104, 1);
 }
 
+/* Separate Pages, links and tags */
 h1{
   text-align: center;
   margin-top: 50px;
@@ -120,10 +121,6 @@ h1{
   margin: 20px auto; 
   width: 80%; 
 }
-
-/* .my-table {
-  width: 100%; 
-} */
 
 .my-table{
   width: 100%;

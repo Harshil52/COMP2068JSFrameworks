@@ -1,5 +1,6 @@
 <h1>{{title}}</h1>
 
+{{!-- Form for Editing a Stored Contact by displaying their previous values --}}
 <form method="POST">
 
 <fieldset>
@@ -21,6 +22,7 @@
       Relation:
     </label>
     <select name="relation" id="relation">
+      {{!-- getting the relations for the dropdown menu using looping --}}
       {{#each relations}}
         {{createOption this.relation ../contacts.relations}}
       {{/each}}

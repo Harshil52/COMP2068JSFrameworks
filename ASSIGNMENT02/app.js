@@ -5,21 +5,23 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var hbs = require("hbs");
 
+// routers for each seperate pages 
 var indexRouter = require("./routes/index");
 var contactsRouter = require("./routes/contacts");
 var relationsRouter = require("./routes/relations");
 
+// Importing Mongoose and Configs
 var mongoose = require("mongoose");
 var configs = require("./configs/globals");
 
+// Importing Passport module and session module
 var passport = require("passport");
 var session = require("express-session");
+// adding user and github modules
 var User = require("./models/user");
-
 var GitHubStrategy = require("passport-github2").Strategy;
 
 var authorization = require("./extensions/authorization");
-
 var app = express();
 
 // view engine setup
@@ -32,6 +34,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+// session setup
 app.use(
   session({
     secret: "contactmanagement",
@@ -40,9 +43,11 @@ app.use(
   })
 );
 
+// Initializing passport and session 
 app.use(passport.initialize());
 app.use(passport.session());
 
+// using passport for local user and github 
 passport.use(User.createStrategy());
 
 passport.use(new GitHubStrategy(
@@ -69,13 +74,16 @@ passport.use(new GitHubStrategy(
   }
 ));
 
+// serializing and deserializing user for passport session 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+// routes handlers
 app.use("/", indexRouter);
 app.use("/contacts", contactsRouter);
 app.use("/relations", authorization, relationsRouter);
 
+// connecting to MongoDB using mongoose
 mongoose
   .connect(configs.ConnectionStrings.MongoDB)
   .then(() => console.log("Connected Successfully!"));
@@ -85,6 +93,7 @@ app.use(function (_req, _res, next) {
   next(createError(404));
 });
 
+// helper function for the dropdown option
 hbs.registerHelper("createOption", (currentValue, selectedValue) => {
   var selectedProperty = "";
   if (currentValue == selectedValue) {
@@ -97,7 +106,6 @@ hbs.registerHelper("createOption", (currentValue, selectedValue) => {
 
 // error handler
 app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
 
@@ -106,8 +114,10 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
-console.log(configs); // Check if configs object is defined and its content
-console.log(configs.Authentication); // Check if Authentication property exists
+// To check and run the configurations
+console.log(configs); 
+console.log(configs.Authentication); 
 console.log(configs.Authentication.GitHub); 
 
+// export the application
 module.exports = app;

@@ -1,5 +1,6 @@
 <h1>{{title}}</h1>
 
+{{!-- Authenticating user before allowing them to add a contact --}}
 {{#if user}}
 <p id="add-link">
 <a href="/contacts/add">Add a new Contact</a>
@@ -18,6 +19,7 @@
         {{/if}}
     </thead>
     <tbody>
+        {{!-- Getting information for each field from the dataset using looping --}}
         {{#each dataset}}
         <tr>
             <td>{{this.name}}</td>
@@ -25,6 +27,7 @@
             <td>{{this.relation}}</td>
             <td>{{this.email}}</td>
 
+            {{!-- Authenticating the user before allowing them to use edit or delete contacts --}}
             {{#if ../user}}
             <td>
                 <a href="/Contacts/edit/{{this._id}}" class="edit-delete">Edit</a>

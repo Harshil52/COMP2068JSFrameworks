@@ -1,5 +1,6 @@
 <h1>{{title}}</h1>
 
+{{!-- Form to add new Contact --}}
 <form method="POST">
 <div class="add-contact">
   <fieldset>
@@ -9,6 +10,7 @@
     <input name="name" id="name" required />
   </fieldset>
 
+  {{!-- Validating contact information if its 10 digits and ranging from 0-9 --}}
   <fieldset>
     <label for="contact">
       Contact:
@@ -21,6 +23,7 @@
       Relation:
     </label>
     <select name="relation" id="relation">
+      {{!-- getting the relations to display in the dropdown menu using looping --}}
       {{#each relations}}
         <option>{{this.relation}}</option>
       {{/each}}
