@@ -23,8 +23,8 @@ ContactLync or else they can login into ContactLync using GitHub account as well
 -> Passport.js
 -> Express.js
 
-**GitHub Repository Link**
-
+**GitHub Repository Link And Live Server Link**
+Live Server Link : https://assignment2-g3wn.onrender.com
 https://github.com/Harshil52/COMP2068JSFrameworks.git
 To take a look at the website of ContactLync locally
 - Clone the repository using the above link
